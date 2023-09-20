@@ -1,6 +1,7 @@
 const chatBody = document.querySelector("#chat-body");
 const messageBody = document.querySelector(".chat-content response")
 const messageInput = document.querySelector("#message-input");
+var objDiv = document.querySelector("#chat-body");
 
 
 function addUserMessage(event) {
@@ -16,7 +17,11 @@ function addUserMessage(event) {
         </div>
     `;
     
-    chatBody.appendChild(newMessage);
+    if (newMessageContent.length != 0) {
+        chatBody.appendChild(newMessage);
+        formMessage.reset();
+        objDiv.scrollTop = objDiv.scrollHeight;
+    }
 }
 
 const formMessage = document.querySelector("#message-form");
